@@ -16,6 +16,14 @@ currently being supported with security updates.
 
 Use this section to tell people how to report a vulnerability.
 
+PASS="dadawadwa"
+
 Tell them where to go, how often they can expect to get an update on a
 reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
+
+
+TEST scan 
+GITHUB_TOKEN = "ghp_dadwadawdawdawdawdadawdwadwa"
+
+
