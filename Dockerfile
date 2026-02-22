@@ -1,4 +1,6 @@
-FROM alpine:latest
+FROM alpine
+
 RUN echo "Hello, Cosign!!" > /hello.txt
 ENV AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 
+EXPOSE 80000
