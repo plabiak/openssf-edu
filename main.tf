@@ -11,7 +11,7 @@ terraform {
 
 resource "null_resource" "test_cicd" {
   provisioner "local-exec" {
-    command = "echo 'Terraform dziala poprawnie w GitHub Actions!'"
+    command = "echo 'TEST: Terraform dziala poprawnie w GitHub Actions!'"
   }
 }
 
