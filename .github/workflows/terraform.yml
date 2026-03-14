@@ -43,29 +43,29 @@ jobs:
       continue-on-error: true
 
     - name: Post Plan to PR
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const output = `#### Terraform Init: \`${{ steps.init.outcome }}\`
-            #### Terraform Plan: \`${{ steps.plan.outcome }}\`
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const output = `#### Terraform Init: \`${{ steps.init.outcome }}\`
+          #### Terraform Plan: \`${{ steps.plan.outcome }}\`
 
-            <details><summary>Show Plan Output</summary>
+          <details><summary>Show Plan Output</summary>
 
-            \`\`\`
-            ${{ steps.plan.outputs.stdout }}
-            \`\`\`
+          \`\`\`
+          ${{ steps.plan.outputs.stdout }}
+          \`\`\`
 
-            </details>
+          </details>
 
-            *Triggered by @${{ github.actor }}, commit: ${{ github.sha }}*`;
+          *Triggered by @${{ github.actor }}, commit: ${{ github.sha }}*`;
 
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            });
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: output
+          });
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
