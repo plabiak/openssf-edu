@@ -48,7 +48,9 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          cost output =
+          const output = `#### Terraform Init: \`${{ steps.init.outcome }}\`
+          #### Terraform Format: \`${{ steps.fmt.outcome }}\`
+          #### Terraform Plan: \`${{ steps.plan.outcome }}\`
           <details><summary>Show Plan Output</summary>
 
           \`\`\`
